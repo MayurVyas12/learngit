@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FeedBack Form With Email Functionality</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="form1.css" rel="stylesheet">
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                showButtonPanel: true
+            });
+        });
+    </script>
+    <!--..........................................-->
+    <script>
+        function yourfunction(radioid) {
+            if (radioid == 1) {
+                document.getElementById('one').style.display = '';
+                document.getElementById('two').style.display = 'none';
+            }
+            else if (radioid == 2) {
+                document.getElementById('two').style.display = '';
+                document.getElementById('one').style.display = 'none';
+            }
+        }
+    </script>
+    <!--................................................-->
+    <script>
+        document.getElementById("box").style.display = "none";
+        function myFunction() {
+            var checkBox = document.getElementById("myCheck");
+            var text = document.getElementById("box");
+            if (checkBox.checked == false) {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    </script>
+    <!--..........................................................-->
+</head>
+
+<!-- Body Starts Here -->
+
+<body>
+    <div class="container">
+        
+        <div id="feedback">
+           
+            <div class="head">
+                <h3>SUBMIT YOUR DESIGN</h3>
+
+            </div>
+            <!--  Form -->
+            <tr>
+                <form action="#" id="form" method="post" name="form">
+                    <table>
+                        <tr>
+                            <td>
+
+                                NAME:
+                                <input name="vname" placeholder="Your Name" type="text" value="">
+                                <br> E-MAIL:
+                                <input name="vemail" placeholder="Your Email" type="text" value="">
+                                <br> DESIGN TITLE:
+                                <input name="vdesign" placeholder="design title" type="text" value="">
+                                <br>
+                                <!--...............-->
+                                <STRONG>Gender</STRONG>
+
+                                <INPUT TYPE='radio' NAME='grp2' VALUE='male' onClick="javascript:return yourfunction(1)">MALE
+                                <INPUT TYPE='radio' NAME='grp2' VALUE='Female' onClick="javascript:return yourfunction(2)">FEMALE</br>
+                                <br/>
+
+                                <div id="one" style="display:none"> COLOR
+                                    <select required name="abc">
+
+                                        <option value="" disabled selected hidden>Select T-shirt Color</option>;
+                                        <option value="0">White </option>;
+                                        <option value="1">black </option>;
+                                        <option value="2">red </option>;
+                                        <option value="3">grey</option>;
+                                    </select>
+                                    <br/>
+                                </div>
+                                <br/>
+
+
+                                <div id="two" style="display:none">
+                                    COLOR
+                                    <select required name="abc">
+                                        <option value="" disabled selected hidden>Select T-shirt Color</option>;
+                                        <option value="3">White</option>;
+                                        <option value="4">Black</option>;
+
+
+                                    </select>
+                                </div>
+                                <!--...................-->
+                                <p>Start Campaign immediately?
+                                    <input type="checkbox" name="checkbox"id="myCheck" onclick="myFunction()">
+                                    <br>
+                                    <span id='box'> Campaign start date
+                                        <input type="text" id="datepicker"name="datepicker">
+                                    </span>
+                                </p>
+
+                                <input id="send" name="submit" type="submit" value="SUBMIT">
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+                </form>
+                <h3>
+                    <?php include "secure_email_code.php"?>
+                </h3>
+        </div>
+        
+    </div>
+</body>
+<!-- Body Ends Here -->
+
+</html>
